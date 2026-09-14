@@ -2,6 +2,9 @@
 #save result in s4
 
 main:
+	#test values
+	lui s2, 0xABCDE
+	addi s2, s2, 0x123
 	#get last byte and move to front
 	lui t3, 0x0000
 	addi t3, t3, 0x0FF
@@ -10,7 +13,8 @@ main:
 
 	#get third byte and move to second byte
 	lui t2, 0x0000F
-	addi t2, t2, 0xF00
+	addi t2, t2, 1920 #0xF00 too large for some reason so I just divided it--
+	addi t2, t2, 1920 #by two and added it twice
 	and t2, t2, s2
 	slli t2, t2, 0x2
 
