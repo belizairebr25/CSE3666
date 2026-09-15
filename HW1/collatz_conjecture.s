@@ -11,6 +11,10 @@ output: .asciz "Stopping time: "
 	addi a7, x0, 0x4
 	ecall
 #program goes here
+	addi a7, x0, 0x5 #get input
+	addi s0, a0, x0 #put input in s0
+
+	
 	#print result from s0
 	la a0, output
 	addi a7, x0, 0x4
