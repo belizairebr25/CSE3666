@@ -1,0 +1,61 @@
+	.data
+newline: .asciz "\n"
+
+	.text
+main:
+	#newline
+	lui a0, 0x10010
+	addi a7, x0, 0x4
+	ecall
+
+	#get input for n(numerator)
+	addi a7, x0, 0x5
+	ecall
+	add s0, a0, x0 #put n value in s0
+	
+	#newline
+	lui a0, 0x10010
+	addi a7, x0, 0x4
+	ecall
+
+	#get input for d(denominator)
+	addi a7, x0, 0x5
+	ecall 
+	add s1, a0, x0 #put d value in s1
+
+	slli s1, s1, 0x10 # shift denominator left 16 bits
+	add s2, x0, x0 #initialize quotient with 0
+	add t0, x0, x0 #initialize i to 0
+	addi t2, x0, 0x10 #loop end condition
+loopstart:
+	bge t0, t2, cont #if i >= 16 skip to cont
+		srai s1, s1, 0x1 #shift d right one bit
+		slli s2, s2, 0x1 #shift quotient left one bit
+		blt s1, s2, loopstart #if n !>= d goto loopstart
+			sub s0, s0, s1 # n -= d
+			ori s2, s2, 0x1 # q |= 1
+	addi t0, t0, 0x1 #increment i
+	beq x0, x0, loopstart #return to loopstart
+			
+cont:
+	#newline
+	lui a0, 0x10010
+	addi a7, x0, 0x4
+	ecall
+	
+	#print value
+	add a0, s2, x0 #put quotient a0
+	addi a7, s0, 0x1
+	ecall
+
+	#newline
+	lui a0, 0x10010
+	addi a7, x0, 0x4
+	ecall
+
+	#exit
+	add a0, x0, x0
+	addi a7, x0, 93
+	ecall
+	
+
