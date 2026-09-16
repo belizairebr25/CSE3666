@@ -1,12 +1,12 @@
 #include <stdio.h>
 int d;
 int q;
-int r; //n
-
+int n; //n
 int main(){
 	q = 0;
-	scanf("%d", &r);
+	scanf("%d", &n);
 	scanf("%d", &d);
+	int r = n;
 	//divide
 	d <<= 16;
 	for(int i = 0; i < 16; i++){

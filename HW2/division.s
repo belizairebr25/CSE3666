@@ -11,7 +11,7 @@ main:
 	#get input for n(numerator)
 	addi a7, x0, 0x5
 	ecall
-	add s0, a0, x0 #put n value in s0
+	add s0, a0, x0 #put n=r value in s0
 	
 	#newline
 	lui a0, 0x10010
@@ -29,10 +29,10 @@ main:
 	addi t2, x0, 0x10 #loop end condition
 loopstart:
 	bge t0, t2, cont #if i >= 16 skip to cont
-		srai s1, s1, 0x1 #shift d right one bit
+		srli s1, s1, 0x1 #shift d right one bit
 		slli s2, s2, 0x1 #shift quotient left one bit
-		blt s1, s2, loopstart #if n !>= d goto loopstart
-			sub s0, s0, s1 # n -= d
+		blt s0, s1, loopstart #if r !>= d goto loopstart
+			sub s0, s0, s1 # r -= d
 			ori s2, s2, 0x1 # q |= 1
 	addi t0, t0, 0x1 #increment i
 	beq x0, x0, loopstart #return to loopstart
@@ -45,7 +45,7 @@ cont:
 	
 	#print value
 	add a0, s2, x0 #put quotient a0
-	addi a7, s0, 0x1
+	addi a7, x0, 0x1
 	ecall
 
 	#newline
