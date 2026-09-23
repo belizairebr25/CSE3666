@@ -22,12 +22,25 @@ f_loop_i1:
 	beq t1, 16, cont1
 	addi t2, x0, 0 #j=0
 f_loop_j1:
-	beq t2, 8, f_loop_i1
-	#need to assign elements in array
-	slli t3, t1, 9 #(i * 256)
-	add t3, t3, t2 #((i * 256) + j)
-	sw s1, t3, 
+	beq t2, 8, next_i1
+	#value to put in cell
+	slli t3, t1, 8 #i*256
+	add t3, t3, t2 #add j
+
+	#cell address
+	slli t4, t1, 3 #i * 8
+	add t4, t4, t2 # add j
+	slli t4, t4, 2 #multiply by 4
+	add t4, s1, t4 #final memory address
+
+	sw t3, 0(t4) #store value in memory
 	
+	addi t2, t2, 1 # increment j
+next_i1:
+	addi t1, t1, 1 # increment i
+	beq x0, x0, f_loop_i1
+
+cont1:	
 	addi a1, x0, 16 #number of rows
 	addi a2, x0, 8 #number of columns
 	addi t1, x0, 0 #i=0
@@ -38,7 +51,10 @@ f_loop_j1:
 	addi a2, x0, 8
 	jal print_array
 
-cont1:
+	add t1, 
+f_loop_i2:
+	beq t1, 16, cont2
+	
 	addi a1, x0, 16
 	addi a2, x0, 8
 	addi t1, x0, 0 #i = 0
