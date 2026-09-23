@@ -23,6 +23,7 @@ f_loop_i1:
 	addi t2, x0, 0 #j=0
 f_loop_j1:
 	beq t2, 8, next_i1
+	
 	#value to put in cell
 	slli t3, t1, 8 #i*256
 	add t3, t3, t2 #add j
@@ -36,6 +37,8 @@ f_loop_j1:
 	sw t3, 0(t4) #store value in memory
 	
 	addi t2, t2, 1 # increment j
+	beq x0, x0, f_loop_j1
+
 next_i1:
 	addi t1, t1, 1 # increment i
 	beq x0, x0, f_loop_i1
@@ -50,14 +53,33 @@ cont1:
 	addi a1, x0, 16
 	addi a2, x0, 8
 	jal print_array
-
-	add t1, 
-f_loop_i2:
+ 
 	beq t1, 16, cont2
 	
 	addi a1, x0, 16
 	addi a2, x0, 8
 	addi t1, x0, 0 #i = 0
+
+f_loop_i2:
+	beq t0, 8, cont2 #end condition
+	add t2, x0, x0 #j=0
+f_loop_j2:
+	beq t2, 16, next_i1
+ 
+        #value to put in cell
+        lw s3, t2(s1)
+
+        #cell address  
+        sw s2, t2(s3) #store value in memory
+ 
+        addi t2, t2, 1 # increment j
+        beq x0, x0, f_loop_j2
+ 
+next_i1:
+        addi t1, t1, 1 # increment i
+        beq x0, x0, f_loop_i2
+
+cont2:
 
 	#print D and exit
 	addi a0, s2, 0
