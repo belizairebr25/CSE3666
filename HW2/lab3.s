@@ -89,24 +89,58 @@ array_merge:
 loop1: 
         # Short-circuit evaluation
         # if i1 >= n1, go to end_loop1
-        # if i2 >= n2, go to end_loop1
-	bge a6, a2, end_loop1
-	bge a7, a4, end_loop1
-		add t0, a1, a6 #add index 1 to starting address and store in t0 (w1)
-		add t1, a3, a7 #add index 2 to starting address and store in t1 (w2)
-		bge t0, t1, skip1
-			add t2, t0, x0 #wd = w1
+        # if i2 >= n2, go to end_loop2
+	bge a6, a2, loop2
+	bge a7, a4, loop3
+		slli t0, a6, 2 #multiply i1 by 4 for word
+		slli t1, a7, 2 #same thing
+		add t3, a1, t0 #add index 1 to starting address and store in t0 (w1)
+		add t4, a3, t1 #add index 2 to starting address and store in t1 (w2)
+		#load values
+		lw t5, 0(t3) 
+		lw t6, 0(t4)
+		bge t5, t6, skip1
+			add t2, t5, x0 #wd = w1
 			addi a6, a6, 0x1 #i++ 
+			beq x0, x0, endl1 #skip to restart loop
 skip1:
-			add t2, t1, x0 #wd = w2
+			add t2, t6, x0 #wd = w2
 			addi a7, a7, 0x1 #i++
-		sw t2, a5(a0) #store wd in array using index as offset
+endl1:
+		slli t3, a5, 0x2
+		add t3, a0, t3
+		sw t2, 0(t3) #store wd in array using index as offset
 		addi a5, a5, 0x1 #i++
 		beq x0, x0, loop1 #jump to loopstart
 
 loop2:
 	#WRITE LOOP 2 and 3
+	bge a7, a4, f_exit
+	slli t0, a7, 2 #calculate offset
+	add t3, a3, t0 #add offset
+	lw t5, 0(t3) #load word
+
+	slli t0, a5, 0x2 #destination offset
+	add t4, a0, t0 #add offset
+	sw t5, 0(t4) #put it away
+
+	addi a7, a7, 1 #i++
+	addi a5, a5, 1 #destination ++
+	beq x0, x0, loop2
+		
+loop3:
+	bge a6, a2, f_exit
+	slli t0, a6, 2 #calculate offset
+	add t3, a1, t0 #add offset
+	lw t5, 0(t3) #load word
 	
+	slli t0, a5, 0x2 #dst offset
+	add t4, a0, t0 #add offset
+	sw t5, 0(t4)
+
+	addi a6, a6, 0x1 #i++
+	addi a5, a5, 0x1 #dist++
+	beq x0, x0, loop3
         # Do not change the lines below 
 f_exit:
         jalr    x0, ra, 0
