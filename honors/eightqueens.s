@@ -1,3 +1,5 @@
+
+
         # code
         .text
 main:   
@@ -6,7 +8,12 @@ main:
         # the numbers in the array are the location of the queen in each row
         # we can place the queen in row 0 in a different column
         # by changing the immediate in the first instruction below
+		
+		#Macros
+		# empty char ascii number: 0x2d
+		addi s11, x0, 8 #boardsize
 
+		#Given
         addi    s1, x0, 0           # location of the queen in row 0
 
         addi    sp, sp, -32
@@ -38,7 +45,12 @@ mp_exit:
 #######################
 ### put your code here
 solve_8queens: 
+	#pass a and 1 (&a[] := a0 and k := a1) on first iteration
+	add t0, x0, x0 #counter
+	bne a1, s8q1#k and boardsize
 
+s8q1:
+	
 
 ### End of your code
 #######################
