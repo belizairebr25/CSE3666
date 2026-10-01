@@ -44,6 +44,9 @@ main:
         addi	a2, s3, 0
         jal	ra, binary_search
 
+		addi a7, x0, 1
+		ecall
+
 exit:   addi    a7, x0, 10      
         ecall
 
@@ -51,42 +54,49 @@ exit:   addi    a7, x0, 10
 binary_search:
 		#pass a[] (&word_array ie a0), n (len[word_array ie a1), v (target value ie a2)
         # TODO
-		#t0 = rv, t1 = half, t2 = half_index, t5= half offset t3 = left, t4 = ra
-		bne t4, x0, con0 #check if return address in t4
-			add t4, ra, x0 #store return address		
+		#t0 = rv, t1 = half, t2 = half_index, t5= half offset t3 = left
+		addi sp, sp, -16 #allocate space on the stack
+		sw ra, 0(sp) #store return address on the stack
+				
 con0:
 		bne a1, x0, con1 # if (n==0)
-			addi t0, x0, -1 # rv = -1
-			beq x0, x0, f_exit #unconditional exit
+			addi a0, x0, -1 # rv = -1
+			beq x0, x0, f_exit
 con1:	
 		#get middle element
-		add t1, a1, x0 #int half = n
+		add t1, a1, x0 #t1 = n
 		srli t1, t1, 0x1 # half /= 2
 		slli t5, t1, 0x2 #multiply to get offset
 		add t2, a0, t5 #add offset 
 		lw t2, 0(t2) #get middle element and store in t2
 		
 		bne t2, a2, con2 #if half_v == v
-			add t0, t1, x0 # rv = half	
+			add t0, t1, x0 # rv = half
+			add a0, t1, x0 #return value in a0
+			beq x0, x0, f_exit	
 con2:								
-		blt a2, t2 con3 # if v < half_v
-			add a0, a0, x0 #&word array in a0
+		bge a2, t2, con3 # if v < half_v
 			add a1, t1, x0 #half in a1
-			add a2, a2, x0 #v in a2
 			jal ra, binary_search
-			add t0, a0, x0 #rv = return value
+			beq x0, x0, f_exit
 con3:
 		addi t3, t1, 0x1 #left = half + 1(index)
-		add a0, t3, a0 #&word_array[left] in a0
-		sub a1, a1, t3 #a1 = n - left
-		add a2, a2, x0 #v
+		sw t3, 4(sp) #save left on the stack
+		slli t5, t3, 0x2 #multiply ofsett by bytes in word
+		add a0, a0, t5 #&a[left]
+		sub a1, a1, t3 #n -= left
+		
 		jal ra, binary_search
-		add t0, a0, x0 #rv = return value
-		blt t0, x0 f_exit # if ra >= 0
-			add t0, t0, t3 # rv += left
+		blt a0, x0, f_exit
+			lw t3, 4(sp) #restore left
+			add a0, a0, t3 # add offset
+			add t0, a0, x0 #rv = return value
+		
+			
 		
 f_exit:
-		lw ra, 0(t4) #bring original return address back
+		lw ra, 0(sp) #bring original return address back
+		addi sp, sp, 16 #bring sack pointer back to unwind recursion
 		jalr x0, ra, 0 #return rv
 
 
