@@ -44,8 +44,8 @@ main:
         addi	a2, s3, 0
         jal	ra, binary_search
 
-		addi a7, x0, 1
-		ecall
+		#addi a7, x0, 1
+		#ecall
 
 exit:   addi    a7, x0, 10      
         ecall
