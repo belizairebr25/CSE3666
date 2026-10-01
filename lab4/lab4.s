@@ -51,8 +51,10 @@ exit:   addi    a7, x0, 10
 binary_search:
 		#pass a[] (&word_array ie a0), n (len[word_array ie a1), v (target value ie a2)
         # TODO
-		#t0 = rv, t1 = half, t2 = half_v, t3 = left, t4 = ra
-		add t4, ra, x0 #store return address		
+		#t0 = rv, t1 = half, t2 = half_index, t5= half offset t3 = left, t4 = ra
+		bne t4, x0, con0 #check if return address in t4
+			add t4, ra, x0 #store return address		
+con0:
 		bne a1, x0, con1 # if (n==0)
 			addi t0, x0, -1 # rv = -1
 			beq x0, x0, f_exit #unconditional exit
@@ -60,21 +62,21 @@ con1:
 		#get middle element
 		add t1, a1, x0 #int half = n
 		srli t1, t1, 0x1 # half /= 2
-		slli t1, t1, 0x2 #multiply offset by 4 bytes
-		add t2, a0, t1 #add offset 
+		slli t5, t1, 0x2 #multiply to get offset
+		add t2, a0, t5 #add offset 
 		lw t2, 0(t2) #get middle element and store in t2
 		
-		bne t2, t1, con2 #if half_v == v
+		bne t2, a2, con2 #if half_v == v
 			add t0, t1, x0 # rv = half	
 con2:								
-		bge a2, t2 con3 # if v < half_v
+		blt a2, t2 con3 # if v < half_v
 			add a0, a0, x0 #&word array in a0
 			add a1, t1, x0 #half in a1
 			add a2, a2, x0 #v in a2
 			jal ra, binary_search
 			add t0, a0, x0 #rv = return value
 con3:
-		addi t3, t1, 0x4 #left = half + 1(index)
+		addi t3, t1, 0x1 #left = half + 1(index)
 		add a0, t3, a0 #&word_array[left] in a0
 		sub a1, a1, t3 #a1 = n - left
 		add a2, a2, x0 #v
@@ -85,7 +87,7 @@ con3:
 		
 f_exit:
 		lw ra, 0(t4) #bring original return address back
-		jalr ra, t0 #return rv
+		jalr x0, ra, 0 #return rv
 
 
 
