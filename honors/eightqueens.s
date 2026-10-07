@@ -16,7 +16,7 @@ main:
 		
 		#Given
 		#change this immediate for different row starting position
-        addi    s1, x0, 0          # location of the queen in row 0
+        addi    s1, x0, 1          # location of the queen in row 0
 
         addi    sp, sp, -32
         addi    a0, sp, 0           # put a's address in a0

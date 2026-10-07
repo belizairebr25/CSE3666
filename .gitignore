@@ -53,3 +53,8 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+#swap files from messing with vim
+*.swp
+*.swo
+*.swn
