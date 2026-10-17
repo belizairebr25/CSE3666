@@ -80,8 +80,8 @@ module Adder1bit (
     // TODO:
     // Generate s and carryout using continuous assignments
     // See how the output signal is generated in Mux4
-    // assign s = 
-    // assign carryout = 
+    assign s = carryin ^ a ^ b;
+    assign carryout = (a & b) | (carryin & (a ^ b)); 
     
 endmodule
 
@@ -117,9 +117,40 @@ module ALU1bit (
 
     // TODO:
     // Continue to instantiate other modules
-
-    // Use a Mux2 to select b or ~b
-
+	And2 u_and(
+		.a(a),
+		.b(mux2_out),
+		.y(and_out)
+	);
+	Mux2 u_mux(
+		.a(b),
+		.b(notb),
+		.s(binvert),
+		.y(mux2_out)
+	);	
+	
+	Or2 u_or(
+		.a(a),
+		.b(mux2_out),
+		.y(or_out)
+	);
+	Adder1bit u_adder1bit(
+		.a(a),
+		.b(mux2_out),
+		.carryin(carryin),
+		.carryout(carryout),
+		.s(adder_sum)
+	);
+		
+	Mux4 u_mux4(
+		.a(and_out),
+		.b(or_out),
+		.c(adder_sum),
+		.d(signal0),
+		.s(operation),
+		.y(result)
+	);
+	
 endmodule
 
 module ALU4bit (
@@ -161,8 +192,38 @@ module ALU4bit (
 
     // TODO:
     // Continue to instantiate three more 1-bit ALUs.
-    // Then use continuous assigment to drive/generate zero.
-    // assign zero =
+    ALU1bit alu1(
+		.a(a[1]),
+		.b(b[1]),
+		.carryin(carry0),
+		.binvert(binvert),
+		.operation(operation),
+		.result(result[1]),
+		.carryout(carry1)
+	);
+
+	ALU1bit alu2(
+		.a(a[2]),
+		.b(b[2]),
+		.carryin(carry1),
+		.binvert(binvert),
+		.operation(operation),
+		.result(result[2]),
+		.carryout(carry2)
+	);
+
+	ALU1bit alu3(
+		.a(a[3]),
+		.b(b[3]),
+		.carryin(carry2),
+		.binvert(binvert),
+		.operation(operation),
+		.result(result[3]),
+		.carryout(carry3)
+	);
+	// Then use continuous assigment to drive/generate zero.
+    assign zero = ~(result[0] & result[1] & result[2] & result[3]);
+	
 
 
 endmodule
