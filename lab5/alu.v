@@ -222,7 +222,7 @@ module ALU4bit (
 		.carryout(carry3)
 	);
 	// Then use continuous assigment to drive/generate zero.
-    assign zero = ~(result[0] & result[1] & result[2] & result[3]);
+    assign zero = ~|result;
 	
 
 
