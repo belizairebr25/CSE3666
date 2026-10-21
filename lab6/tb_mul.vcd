@@ -1,0 +1,311 @@
+$date
+	Wed Oct 21 13:11:29 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module tb_mul $end
+$var wire 16 ! product [15:0] $end
+$var wire 1 " done $end
+$var parameter 32 # NUM_BITS $end
+$var reg 1 $ clock $end
+$var reg 1 % load $end
+$var reg 8 & multiplicand [7:0] $end
+$var reg 8 ' multiplier [7:0] $end
+$var integer 32 ( cycle [31:0] $end
+$var integer 32 ) x [31:0] $end
+$var integer 32 * y [31:0] $end
+$scope module dut $end
+$var wire 1 $ clock $end
+$var wire 1 % load $end
+$var wire 8 + x_init [7:0] $end
+$var wire 8 , y_init [7:0] $end
+$var wire 16 - zero16 [15:0] $end
+$var wire 8 . y [7:0] $end
+$var wire 16 / xx_init [15:0] $end
+$var wire 16 0 x [15:0] $end
+$var wire 1 1 write $end
+$var wire 1 2 shift_en $end
+$var wire 16 3 p [15:0] $end
+$var wire 1 " done $end
+$var wire 16 4 adder_out [15:0] $end
+$scope module u_adder $end
+$var wire 16 5 s [15:0] $end
+$var wire 16 6 b [15:0] $end
+$var wire 16 7 a [15:0] $end
+$upscope $end
+$scope module u_control $end
+$var wire 1 $ clock $end
+$var wire 1 % load $end
+$var wire 1 1 pwrite $end
+$var wire 1 8 test $end
+$var wire 1 2 shift_en $end
+$var wire 1 " done $end
+$var wire 4 9 counter_next [3:0] $end
+$var reg 4 : counter [3:0] $end
+$upscope $end
+$scope module u_reg_p $end
+$var wire 1 $ clock $end
+$var wire 16 ; din [15:0] $end
+$var wire 1 % load $end
+$var wire 16 < load_data [15:0] $end
+$var wire 1 1 write $end
+$var reg 16 = dout [15:0] $end
+$upscope $end
+$scope module u_reg_sl $end
+$var wire 1 $ clock $end
+$var wire 1 % load $end
+$var wire 16 > load_data [15:0] $end
+$var wire 1 2 sl $end
+$var reg 16 ? dout [15:0] $end
+$upscope $end
+$scope module u_reg_sr $end
+$var wire 1 $ clock $end
+$var wire 1 % load $end
+$var wire 8 @ load_data [7:0] $end
+$var wire 1 2 sr $end
+$var reg 8 A dout [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000 #
+$end
+#0
+$dumpvars
+bx A
+b1000010 @
+bx ?
+b100100 >
+bx =
+b0 <
+bx ;
+bx :
+bx 9
+x8
+bx 7
+bx 6
+bx 5
+bx 4
+bx 3
+x2
+x1
+bx 0
+b100100 /
+bx .
+b0 -
+b1000010 ,
+b100100 +
+b1000010 *
+b100100 )
+b0 (
+b1000010 '
+b100100 &
+1%
+0$
+x"
+bx !
+$end
+#5
+1$
+#6
+08
+b0 !
+b0 3
+b0 7
+b0 =
+b100100 0
+b100100 6
+b100100 ?
+b1000010 .
+b1000010 A
+b0 :
+0%
+#7
+01
+b0x 9
+#8
+0"
+#9
+b1 9
+12
+b100100 4
+b100100 5
+b100100 ;
+#10
+0$
+#15
+b1 (
+1$
+#16
+18
+b1 :
+b100001 .
+b100001 A
+b1001000 0
+b1001000 6
+b1001000 ?
+#17
+b10 9
+11
+#19
+b1001000 4
+b1001000 5
+b1001000 ;
+#20
+0$
+#25
+b10 (
+1$
+#26
+08
+b1001000 !
+b1001000 3
+b1001000 7
+b1001000 =
+b10010000 0
+b10010000 6
+b10010000 ?
+b10000 .
+b10000 A
+b10 :
+#27
+01
+b11 9
+#29
+b11011000 4
+b11011000 5
+b11011000 ;
+#30
+0$
+#35
+b11 (
+1$
+#36
+b11 :
+b1000 .
+b1000 A
+b100100000 0
+b100100000 6
+b100100000 ?
+#37
+b100 9
+#39
+b101101000 4
+b101101000 5
+b101101000 ;
+#40
+0$
+#45
+b100 (
+1$
+#46
+b1001000000 0
+b1001000000 6
+b1001000000 ?
+b100 .
+b100 A
+b100 :
+#47
+b101 9
+#49
+b1010001000 4
+b1010001000 5
+b1010001000 ;
+#50
+0$
+#55
+b101 (
+1$
+#56
+b101 :
+b10 .
+b10 A
+b10010000000 0
+b10010000000 6
+b10010000000 ?
+#57
+b110 9
+#59
+b10011001000 4
+b10011001000 5
+b10011001000 ;
+#60
+0$
+#65
+b110 (
+1$
+#66
+18
+b100100000000 0
+b100100000000 6
+b100100000000 ?
+b1 .
+b1 A
+b110 :
+#67
+11
+b111 9
+#69
+b100101001000 4
+b100101001000 5
+b100101001000 ;
+#70
+0$
+#75
+b111 (
+1$
+#76
+08
+b111 :
+b0 .
+b0 A
+b1001000000000 0
+b1001000000000 6
+b1001000000000 ?
+b100101001000 !
+b100101001000 3
+b100101001000 7
+b100101001000 =
+#77
+b1000 9
+01
+#79
+b1101101001000 4
+b1101101001000 5
+b1101101001000 ;
+#80
+0$
+#85
+b1000 (
+1$
+#86
+b10010000000000 0
+b10010000000000 6
+b10010000000000 ?
+b1000 :
+#87
+b1001 9
+#88
+1"
+#89
+b1000 9
+02
+b10110101001000 4
+b10110101001000 5
+b10110101001000 ;
+#90
+0$
+#95
+b1001 (
+1$
+#100
+0$
+#105
+b1010 (
+1$
