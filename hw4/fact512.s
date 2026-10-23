@@ -12,7 +12,7 @@ main:
         addi    a0, sp, 0
         jal     ra, print_512
 
-        addi    a7, x0, 7
+        addi    a7, x0, 10
         ecall
 
 # print a large number
@@ -82,6 +82,28 @@ copy_loop:
 # a2 = b
 mul_512_32:
         # TODO
+		addi sp, sp, -32 #move sp 32 bytes
+		sw ra, 0(sp)
+		sw a0, 4(sp)
+		sw a1, 8(sp)
+		sw a2, 12(sp)
+		sw s0, 16(sp)
+		sw s1, 20(sp)
+
+		add a0, x0, x0 #old_hi = 0
+		add s0, x0, x0 #int i
+		add s1, x0, 16 
+L1:
+		beq s0, s1, L2 #if i == 16 jmp
+			lw t0, 12(sp) #t0 = &a
+			lw t1, 16(sp) #t1 = b
+			slli t2, s0, 2 #multiply i by 4
+			add t2, t2, t0 #offset + base address
+			lw t2, 0(t2) #get element from a
+		 	mulhu t2, t2, t1 #multiply half unsigned b and a[i]
+			
+		
+	
         jalr    x0, ra, 0
 
 
