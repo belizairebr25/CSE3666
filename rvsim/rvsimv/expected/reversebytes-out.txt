@@ -1,0 +1,228 @@
+==========Cycle 0
+PC=0x00400000 instruction=0x00400a13
+rs1=0 rs2=4 rd=20 imm=0x00000004
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=10 ReadData1=0x00000000 ReadData2=0xffffff10 ALUInput2=0x00000004
+ALUResult=0x00000004 Zero=0 BranchTarget=0x00400004 PC4=0x00400004 NextPC=0x00400004
+==========Cycle 1
+PC=0x00400004 instruction=0x000005b3
+rs1=0 rs2=0 rd=11 imm=0x00000000
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=1 MemtoReg=0 ALUOp=10
+ALUOperation=10 ReadData1=0x00000000 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000000 Zero=1 BranchTarget=0x00400004 PC4=0x00400008 NextPC=0x00400008
+==========Cycle 2
+PC=0x00400008 instruction=0x00050633
+rs1=10 rs2=0 rd=12 imm=0x00000000
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=1 MemtoReg=0 ALUOp=10
+ALUOperation=10 ReadData1=0xa0b1c2d3 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0xa0b1c2d3 Zero=0 BranchTarget=0x00400008 PC4=0x0040000c NextPC=0x0040000c
+==========Cycle 3
+PC=0x0040000c instruction=0x000a0e63
+rs1=20 rs2=0 rd=28 imm=0x0000001c
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000004 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000004 Zero=0 BranchTarget=0x00400028 PC4=0x00400010 NextPC=0x00400010
+==========Cycle 4
+PC=0x00400010 instruction=0x0ff67293
+rs1=12 rs2=31 rd=5 imm=0x000000ff
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=0 ReadData1=0xa0b1c2d3 ReadData2=0x00000000 ALUInput2=0x000000ff
+ALUResult=0x000000d3 Zero=0 BranchTarget=0x0040010f PC4=0x00400014 NextPC=0x00400014
+==========Cycle 5
+PC=0x00400014 instruction=0x00859593
+rs1=11 rs2=8 rd=11 imm=0x00000008
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1000 ReadData1=0x00000000 ReadData2=0x00000008 ALUInput2=0x00000008
+ALUResult=0x00000000 Zero=1 BranchTarget=0x0040001c PC4=0x00400018 NextPC=0x00400018
+==========Cycle 6
+PC=0x00400018 instruction=0x0055e5b3
+rs1=11 rs2=5 rd=11 imm=0x00000005
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=1 MemtoReg=0 ALUOp=10
+ALUOperation=1 ReadData1=0x00000000 ReadData2=0x000000d3 ALUInput2=0x000000d3
+ALUResult=0x000000d3 Zero=0 BranchTarget=0x0040001d PC4=0x0040001c NextPC=0x0040001c
+==========Cycle 7
+PC=0x0040001c instruction=0x00865613
+rs1=12 rs2=8 rd=12 imm=0x00000008
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1001 ReadData1=0xa0b1c2d3 ReadData2=0x00000008 ALUInput2=0x00000008
+ALUResult=0x00a0b1c2 Zero=0 BranchTarget=0x00400024 PC4=0x00400020 NextPC=0x00400020
+==========Cycle 8
+PC=0x00400020 instruction=0xfffa0a13
+rs1=20 rs2=31 rd=20 imm=0xffffffff
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=10 ReadData1=0x00000004 ReadData2=0x00000000 ALUInput2=0xffffffff
+ALUResult=0x00000003 Zero=0 BranchTarget=0x0040001f PC4=0x00400024 NextPC=0x00400024
+==========Cycle 9
+PC=0x00400024 instruction=0xfe0004e3
+rs1=0 rs2=0 rd=9 imm=0xffffffe8
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000000 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000000 Zero=1 BranchTarget=0x0040000c PC4=0x00400028 NextPC=0x0040000c
+==========Cycle 10
+PC=0x0040000c instruction=0x000a0e63
+rs1=20 rs2=0 rd=28 imm=0x0000001c
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000003 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000003 Zero=0 BranchTarget=0x00400028 PC4=0x00400010 NextPC=0x00400010
+==========Cycle 11
+PC=0x00400010 instruction=0x0ff67293
+rs1=12 rs2=31 rd=5 imm=0x000000ff
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=0 ReadData1=0x00a0b1c2 ReadData2=0x00000000 ALUInput2=0x000000ff
+ALUResult=0x000000c2 Zero=0 BranchTarget=0x0040010f PC4=0x00400014 NextPC=0x00400014
+==========Cycle 12
+PC=0x00400014 instruction=0x00859593
+rs1=11 rs2=8 rd=11 imm=0x00000008
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1000 ReadData1=0x000000d3 ReadData2=0x00000008 ALUInput2=0x00000008
+ALUResult=0x0000d300 Zero=0 BranchTarget=0x0040001c PC4=0x00400018 NextPC=0x00400018
+==========Cycle 13
+PC=0x00400018 instruction=0x0055e5b3
+rs1=11 rs2=5 rd=11 imm=0x00000005
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=1 MemtoReg=0 ALUOp=10
+ALUOperation=1 ReadData1=0x0000d300 ReadData2=0x000000c2 ALUInput2=0x000000c2
+ALUResult=0x0000d3c2 Zero=0 BranchTarget=0x0040001d PC4=0x0040001c NextPC=0x0040001c
+==========Cycle 14
+PC=0x0040001c instruction=0x00865613
+rs1=12 rs2=8 rd=12 imm=0x00000008
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1001 ReadData1=0x00a0b1c2 ReadData2=0x00000008 ALUInput2=0x00000008
+ALUResult=0x0000a0b1 Zero=0 BranchTarget=0x00400024 PC4=0x00400020 NextPC=0x00400020
+==========Cycle 15
+PC=0x00400020 instruction=0xfffa0a13
+rs1=20 rs2=31 rd=20 imm=0xffffffff
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=10 ReadData1=0x00000003 ReadData2=0x00000000 ALUInput2=0xffffffff
+ALUResult=0x00000002 Zero=0 BranchTarget=0x0040001f PC4=0x00400024 NextPC=0x00400024
+==========Cycle 16
+PC=0x00400024 instruction=0xfe0004e3
+rs1=0 rs2=0 rd=9 imm=0xffffffe8
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000000 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000000 Zero=1 BranchTarget=0x0040000c PC4=0x00400028 NextPC=0x0040000c
+==========Cycle 17
+PC=0x0040000c instruction=0x000a0e63
+rs1=20 rs2=0 rd=28 imm=0x0000001c
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000002 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000002 Zero=0 BranchTarget=0x00400028 PC4=0x00400010 NextPC=0x00400010
+==========Cycle 18
+PC=0x00400010 instruction=0x0ff67293
+rs1=12 rs2=31 rd=5 imm=0x000000ff
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=0 ReadData1=0x0000a0b1 ReadData2=0x00000000 ALUInput2=0x000000ff
+ALUResult=0x000000b1 Zero=0 BranchTarget=0x0040010f PC4=0x00400014 NextPC=0x00400014
+==========Cycle 19
+PC=0x00400014 instruction=0x00859593
+rs1=11 rs2=8 rd=11 imm=0x00000008
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1000 ReadData1=0x0000d3c2 ReadData2=0x00000008 ALUInput2=0x00000008
+ALUResult=0x00d3c200 Zero=0 BranchTarget=0x0040001c PC4=0x00400018 NextPC=0x00400018
+==========Cycle 20
+PC=0x00400018 instruction=0x0055e5b3
+rs1=11 rs2=5 rd=11 imm=0x00000005
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=1 MemtoReg=0 ALUOp=10
+ALUOperation=1 ReadData1=0x00d3c200 ReadData2=0x000000b1 ALUInput2=0x000000b1
+ALUResult=0x00d3c2b1 Zero=0 BranchTarget=0x0040001d PC4=0x0040001c NextPC=0x0040001c
+==========Cycle 21
+PC=0x0040001c instruction=0x00865613
+rs1=12 rs2=8 rd=12 imm=0x00000008
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1001 ReadData1=0x0000a0b1 ReadData2=0x00000008 ALUInput2=0x00000008
+ALUResult=0x000000a0 Zero=0 BranchTarget=0x00400024 PC4=0x00400020 NextPC=0x00400020
+==========Cycle 22
+PC=0x00400020 instruction=0xfffa0a13
+rs1=20 rs2=31 rd=20 imm=0xffffffff
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=10 ReadData1=0x00000002 ReadData2=0x00000000 ALUInput2=0xffffffff
+ALUResult=0x00000001 Zero=0 BranchTarget=0x0040001f PC4=0x00400024 NextPC=0x00400024
+==========Cycle 23
+PC=0x00400024 instruction=0xfe0004e3
+rs1=0 rs2=0 rd=9 imm=0xffffffe8
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000000 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000000 Zero=1 BranchTarget=0x0040000c PC4=0x00400028 NextPC=0x0040000c
+==========Cycle 24
+PC=0x0040000c instruction=0x000a0e63
+rs1=20 rs2=0 rd=28 imm=0x0000001c
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000001 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000001 Zero=0 BranchTarget=0x00400028 PC4=0x00400010 NextPC=0x00400010
+==========Cycle 25
+PC=0x00400010 instruction=0x0ff67293
+rs1=12 rs2=31 rd=5 imm=0x000000ff
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=0 ReadData1=0x000000a0 ReadData2=0x00000000 ALUInput2=0x000000ff
+ALUResult=0x000000a0 Zero=0 BranchTarget=0x0040010f PC4=0x00400014 NextPC=0x00400014
+==========Cycle 26
+PC=0x00400014 instruction=0x00859593
+rs1=11 rs2=8 rd=11 imm=0x00000008
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1000 ReadData1=0x00d3c2b1 ReadData2=0x00000008 ALUInput2=0x00000008
+ALUResult=0xd3c2b100 Zero=0 BranchTarget=0x0040001c PC4=0x00400018 NextPC=0x00400018
+==========Cycle 27
+PC=0x00400018 instruction=0x0055e5b3
+rs1=11 rs2=5 rd=11 imm=0x00000005
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=1 MemtoReg=0 ALUOp=10
+ALUOperation=1 ReadData1=0xd3c2b100 ReadData2=0x000000a0 ALUInput2=0x000000a0
+ALUResult=0xd3c2b1a0 Zero=0 BranchTarget=0x0040001d PC4=0x0040001c NextPC=0x0040001c
+==========Cycle 28
+PC=0x0040001c instruction=0x00865613
+rs1=12 rs2=8 rd=12 imm=0x00000008
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1001 ReadData1=0x000000a0 ReadData2=0x00000008 ALUInput2=0x00000008
+ALUResult=0x00000000 Zero=1 BranchTarget=0x00400024 PC4=0x00400020 NextPC=0x00400020
+==========Cycle 29
+PC=0x00400020 instruction=0xfffa0a13
+rs1=20 rs2=31 rd=20 imm=0xffffffff
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=10 ReadData1=0x00000001 ReadData2=0x00000000 ALUInput2=0xffffffff
+ALUResult=0x00000000 Zero=1 BranchTarget=0x0040001f PC4=0x00400024 NextPC=0x00400024
+==========Cycle 30
+PC=0x00400024 instruction=0xfe0004e3
+rs1=0 rs2=0 rd=9 imm=0xffffffe8
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000000 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000000 Zero=1 BranchTarget=0x0040000c PC4=0x00400028 NextPC=0x0040000c
+==========Cycle 31
+PC=0x0040000c instruction=0x000a0e63
+rs1=20 rs2=0 rd=28 imm=0x0000001c
+Branch=1 MemRead=0 MemWrite=0 ALUSrc=0 RegWrite=0 MemtoReg=0 ALUOp=1
+ALUOperation=110 ReadData1=0x00000000 ReadData2=0x00000000 ALUInput2=0x00000000
+ALUResult=0x00000000 Zero=1 BranchTarget=0x00400028 PC4=0x00400010 NextPC=0x00400028
+INFO: done is set in cycle 32
+==========Report
+x0=0x00000000
+x1=0x00000001
+x2=0x10010ff0
+x3=0x10010000
+x4=0xffffff10
+x5=0x000000a0
+x6=0x00000006
+x7=0x00000007
+x8=0x00000008
+x9=0x00000009
+x10=0xa0b1c2d3
+x11=0xd3c2b1a0
+x12=0x00000000
+x13=0x00000000
+x14=0x00000000
+x15=0x00000000
+x16=0x00000000
+x17=0x00000000
+x18=0x00000000
+x19=0x00000000
+x20=0x00000000
+x21=0x00000000
+x22=0x00000000
+x23=0x00000000
+x24=0x00000000
+x25=0x00000000
+x26=0x00000000
+x27=0x00000000
+x28=0x00000000
+x29=0x00000000
+x30=0x00000000
+x31=0x00000000
+==========Data memory modified words
+(none)

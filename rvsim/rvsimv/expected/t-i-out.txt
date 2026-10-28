@@ -1,0 +1,72 @@
+==========Cycle 0
+PC=0x00400000 instruction=0x16e00293
+rs1=0 rs2=14 rd=5 imm=0x0000016e
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=10 ReadData1=0x00000000 ReadData2=0x00000000 ALUInput2=0x0000016e
+ALUResult=0x0000016e Zero=0 BranchTarget=0x0040016e PC4=0x00400004 NextPC=0x00400004
+==========Cycle 1
+PC=0x00400004 instruction=0xe9200313
+rs1=0 rs2=18 rd=6 imm=0xfffffe92
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=10 ReadData1=0x00000000 ReadData2=0x00000000 ALUInput2=0xfffffe92
+ALUResult=0xfffffe92 Zero=0 BranchTarget=0x003ffe96 PC4=0x00400008 NextPC=0x00400008
+==========Cycle 2
+PC=0x00400008 instruction=0x30f57413
+rs1=10 rs2=15 rd=8 imm=0x0000030f
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=0 ReadData1=0x0000000a ReadData2=0x00000000 ALUInput2=0x0000030f
+ALUResult=0x0000000a Zero=0 BranchTarget=0x00400317 PC4=0x0040000c NextPC=0x0040000c
+==========Cycle 3
+PC=0x0040000c instruction=0x6a556493
+rs1=10 rs2=5 rd=9 imm=0x000006a5
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1 ReadData1=0x0000000a ReadData2=0x0000016e ALUInput2=0x000006a5
+ALUResult=0x000006af Zero=0 BranchTarget=0x004006b1 PC4=0x00400010 NextPC=0x00400010
+==========Cycle 4
+PC=0x00400010 instruction=0xc0057913
+rs1=10 rs2=0 rd=18 imm=0xfffffc00
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=0 ReadData1=0x0000000a ReadData2=0x00000000 ALUInput2=0xfffffc00
+ALUResult=0x00000000 Zero=1 BranchTarget=0x003ffc10 PC4=0x00400014 NextPC=0x00400014
+==========Cycle 5
+PC=0x00400014 instruction=0xe0056993
+rs1=10 rs2=0 rd=19 imm=0xfffffe00
+Branch=0 MemRead=0 MemWrite=0 ALUSrc=1 RegWrite=1 MemtoReg=0 ALUOp=11
+ALUOperation=1 ReadData1=0x0000000a ReadData2=0x00000000 ALUInput2=0xfffffe00
+ALUResult=0xfffffe0a Zero=0 BranchTarget=0x003ffe14 PC4=0x00400018 NextPC=0x00400018
+INFO: done is set in cycle 6
+==========Report
+x0=0x00000000
+x1=0x00000001
+x2=0x10010ff0
+x3=0x10010000
+x4=0xffffff10
+x5=0x0000016e
+x6=0xfffffe92
+x7=0x00000007
+x8=0x0000000a
+x9=0x000006af
+x10=0x0000000a
+x11=0x0000000b
+x12=0x00000000
+x13=0x00000000
+x14=0x00000000
+x15=0x00000000
+x16=0x00000000
+x17=0x00000000
+x18=0x00000000
+x19=0xfffffe0a
+x20=0x00000000
+x21=0x00000000
+x22=0x00000000
+x23=0x00000000
+x24=0x00000000
+x25=0x00000000
+x26=0x00000000
+x27=0x00000000
+x28=0x00000000
+x29=0x00000000
+x30=0x00000000
+x31=0x00000000
+==========Data memory modified words
+(none)

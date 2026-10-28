@@ -6,7 +6,7 @@ main:
         addi    sp, sp, -256
 
         addi    a0, sp, 0
-        addi    a1, x0, 94      # this is n
+        addi    a1, x0, 96      # this is n
         jal     ra, factorial
 
         addi    a0, sp, 0
