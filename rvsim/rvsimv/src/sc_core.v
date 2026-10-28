@@ -4,7 +4,7 @@ module RISCVCore(
     output done
 );
     localparam PC_BASE_ADDR = 32'h00400000;
-
+	localparam PC_STEP = 32'h00000004;
     wire [31:0] PC;
     wire [31:0] instruction;
     wire        instruction_valid;
@@ -36,6 +36,10 @@ module RISCVCore(
     wire        PCSrc;
     wire [31:0] NextPC;
     wire [31:0] PC4;
+	
+	//my wires
+	wire [31:0] u_adderpc1_out;
+	wire [31:0] u_adderpc2_out;
 
     assign opcode = instruction[6:0];
     assign rd = instruction[11:7];
@@ -44,6 +48,7 @@ module RISCVCore(
     assign rs2 = instruction[24:20];
     assign instr30 = instruction[30];
     assign done = !instruction_valid;
+	assign PC4 = PC_STEP;
 
     RegisterE u_pc(
         .dout(PC),
@@ -62,5 +67,33 @@ module RISCVCore(
 
     // TODO:
     // Continue to instantiate other modules
-  
+	//pc stuff
+	Adder u_adderpc1(
+		//normal step adder
+		.in1(PC),
+		.in2(PC4);
+		.out(u_adderpc1_out)
+	);
+	Adder u_adderpc2(
+		//add pc offset to pc
+		.in1(PC),
+		.in2(imm),
+		.out(u_adderpc2_out)
+	);
+	Mux2 u_mux2_1(
+		//select to add imm to pc or step pc
+		.a(u_adderpc1_out),
+		.b(u_adderpc2_out),
+		.s(PCSrc),
+		.z(NextPC)
+	);
+	Not u_not();
+	And2 u_and2();
+	Or2 u_or2();
+	Xor2 u_xor2();
+	Nand2 u_nand2();
+	Nor2 u_nor2();
+	Mux2 u_mux2();
+	Mux3();
+	  
 endmodule
